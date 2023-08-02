@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>ababa.me/</loc>
+    <loc>/</loc>
   </url><url>
-    <loc>ababa.me/categories/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>ababa.me/tags/</loc>
+    <loc>/tags/</loc>
   </url>
 </urlset>
