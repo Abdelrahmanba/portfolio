@@ -30,15 +30,20 @@ theme = "raditian-free-hugo-theme"
   URL = "#publications"
   weight = 2
 
+  [[menu.talks]]
+  name = "Talks"
+  URL = "#talks"
+  weight = 3
+
   [[menu.header]]
   name = "Linkedin"
   URL = "https://www.linkedin.com/in/abdelrahmanbaba/"
-  weight = 3
+  weight = 4
 
   [[menu.header]]
   name = "Research Group"
   URL = "https://wasl.uwaterloo.ca/"
-  weight = 4
+  weight = 5
 
   [[menu.footer]]
   name = "Research Group"
