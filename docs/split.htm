@@ -24,7 +24,7 @@
                 .split('\n')
                 .map(line => {
                     const index = line.indexOf(']');
-                    return index !== -1 ? line.substring(0, index + 1) : line;
+                    return index !== -1 ? line.substring(index + 1, line.length ) : line;
                 })
                 .join('\n');
 
