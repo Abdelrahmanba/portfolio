@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trim Lines After ]</title>
+</head>
+<body>
+    <h1>Trim Lines After ]</h1>
+
+    <textarea id="inputText" rows="10" cols="50" placeholder="Enter your text here..."></textarea>
+    <br><br>
+    <button id="processButton">Trim Lines</button>
+    <br><br>
+    <textarea id="outputText" rows="10" cols="50" placeholder="Processed text will appear here..." readonly></textarea>
+
+    <script>
+        document.getElementById('processButton').addEventListener('click', function() {
+            // Get input text
+            const inputText = document.getElementById('inputText').value;
+
+            // Split into lines and trim each line after ]
+            const processedText = inputText
+                .split('\n')
+                .map(line => {
+                    const index = line.indexOf(']');
+                    return index !== -1 ? line.substring(index + 1, line.length ) : line;
+                })
+                .join('\n');
+
+            // Display the processed text
+            document.getElementById('outputText').value = processedText;
+        });
+    </script>
+</body>
+</html>
