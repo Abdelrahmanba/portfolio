@@ -226,6 +226,15 @@
   </style>
 
 
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <link rel="stylesheet" href="css/main.css" />
 
   <link rel="stylesheet" href="css/rad-icons.css" />
@@ -258,6 +267,9 @@
           <ul class="navbar-nav ml-lg-auto">
 
             <li class="nav-item">
+              <a data-scroll class="nav-link" href="#news">NEWS</a>
+            </li>
+            <li class="nav-item">
               <a data-scroll class="nav-link" href="#publications">PUBLICATIONS</a>
             </li>
 
@@ -270,6 +282,10 @@
             </li>
 
           </ul>
+          <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;padding:6px 8px;margin-left:8px;border-radius:6px;line-height:1;color:inherit;">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
         </div>
       </nav>
     </div>
@@ -282,7 +298,7 @@
     <div class="rad-showcase__bg">
       <img class="lozad img-responsive"
         src="data:image/gif;base64,R0lGODlhBwACAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAIAAAIDjI9YADs="
-        data-src="img/showcase/showcase.png" data-srcset="img/showcase/showcase.png 1x, img/showcase/showcase@2x.png 2x"
+        data-src="img/showcase/showcase.jpg" data-srcset="img/showcase/showcase.jpg 1x, img/showcase/showcase@2x.jpg 2x"
         alt="Showcase keyboard and mouse image" />
     </div>
     <div class="container">
@@ -300,6 +316,8 @@
               href='https://wasl.uwaterloo.ca/'>(WASL)</a> and the <a target='_blank' href='https://syn.uwaterloo.ca/'>
               Systems and Networking Group</a>. I have an extensive background in various areas of computer science,
             including Web development and Hardware Design verification.
+            Outside of research, I am lucky to share life with my partner <a target='_blank'
+              href='https://cs.uwaterloo.ca/~l2khatib/'>Lara</a>, also a CS PhD student at Waterloo.
           </p>
           <a href="mailto:ababa@uwaterloo.ca" class="btn btn-primary">
             <i class="icon-mail-fill"></i>
@@ -317,7 +335,12 @@
           <a href="https://www.linkedin.com/in/abdelrahmanbaba/" target="_blank"><i class="icon-linkedin-line"></i></a>
 
           <a href="https://github.com/Abdelrahmanba" target="_blank"><i class="icon-github-line"></i></a>
-          <a href="https://scholar.google.com/citations?user=rdOPVCMAAAAJ&hl=en" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="16px" height="16px" viewBox="0 0 24 24" role="img"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=rdOPVCMAAAAJ&hl=en" target="_blank"><svg
+              xmlns="http://www.w3.org/2000/svg" fill="#000000" width="16px" height="16px" viewBox="0 0 24 24"
+              role="img">
+              <path
+                d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+            </svg></a>
 
         </div>
 
@@ -333,39 +356,91 @@
 
 
 
-  <section class="section section--border-bottom rad-animation-group pb-0" id="publications">
+  <section class="section section--border-bottom rad-animation-group" id="news">
     <div class="container rad-fade-down">
       <div class="row d-flex flex-column-reverse flex-md-row">
-        <div class="col-12 my-auto my-auto">
+        <div class="col-12 my-auto">
+          <h3>News</h3>
+          <ul class="lead" style="margin-top: 20px;">
+            <li><span style="color:#888; min-width:100px; display:inline-block;">Jun 2026</span> I am serving on the
+              Artifact Evaluation Committee for <a target="_blank" href="https://sosp2026.cs.cornell.edu/">SOSP
+                2026</a>.</li>
+            <li><span style="color:#888; min-width:100px; display:inline-block;">May 2026</span> I am serving on the
+              Artifact Evaluation Committee for <a target="_blank" href="https://www.usenix.org/conference/osdi26">OSDI
+                2026</a>.</li>
+            <li><span style="color:#888; min-width:100px; display:inline-block;">Apr 2026</span> I will present DROPS at
+              <a target="_blank" href="https://2026.eurosys.org/">EuroSys 2026</a> in Edinburgh, UK.</li>
+            <li><span style="color:#888; min-width:100px; display:inline-block;">Apr 2026</span> I will start an
+              internship at <a target="_blank" href="https://www.microsoft.com/en-us/research/">Microsoft Research</a>
+              in Redmond, WA, working on serverless infrastructure optimizations.</li>
+            <li><span style="color:#888; min-width:100px; display:inline-block;">Jan 2026</span> I have been awarded for
+              the <a target="_blank" href="https://www.interoplabs.io/">Intersop PhD Fellowship</a> (valued at
+              $110,000).</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section section--border-bottom rad-animation-group" id="awards">
+    <div class="container rad-fade-down">
+      <div class="row d-flex flex-column-reverse flex-md-row">
+        <div class="col-12 my-auto">
+          <h3>Awards</h3>
+          <ul class="lead" style="margin-top: 20px;">
+            <li>
+              <h7> Interop Labs PhD Fellowship 2026-2027. </h7>
+            </li>
+            <li>
+              <h7> Acronis Best Patent Award for 2023. </h7>
+            </li>
+            <li>
+              <h7> UWaterloo Graduate Student Research Dissemination Award 2023, 2026. </h7>
+            </li>
+            <li>
+              <h7> UWaterloo International Doctoral Student Award (IDSA). </h7>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border-bottom rad-animation-group" id="publications">
+    <div class="container rad-fade-down">
+      <div class="row d-flex flex-column-reverse flex-md-row">
+        <div class="col-12 my-auto">
           <h3>Publications</h3>
           <ul class="lead" style="margin-top: 20px;">
             <li>
-              <h6> [NEW!] DROPS: Managing Resource Pools in a Large-Scale Commercial Serverless Platform </h6>
-              <p> To appear in European Conference on Computer Systems 2026 (EuroSys'26). <a target=_blank href=""></a>
+              <h6> DROPS: Managing Resource Pools in a Large-Scale Commercial Serverless Platform </h6>
+              <p>Ahmed Alquraan*, Abdelrahman Baba*, Rafael Mendes da Silva, Sameh Elnikety, Paul Batum, Yan Chen, Hamid
+                Henry Safi, Seth Fine, Samer Al-Kiswany <br> (EuroSys'26). <a target=_blank
+                  href="https://dl.acm.org/doi/10.1145/3767295.3769350">[pdf]</a>
               </p>
             </li>
             <li>
               <h6> VectorCDC: Accelerating Data Deduplication with SSE/AVX Instructions </h6>
-              <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany <br> 23rd USENIX Conference on File and
-                Storage Technologies (FAST'25). <a target=_blank href=""></a></p>
+              <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany <br> (FAST'25). <a target=_blank
+                  href="https://www.usenix.org/conference/fast25/presentation/udayashankar">[pdf]</a></p>
             </li>
             <li>
               <h6> SeqCDC: Hashless Content-Defined Chunking for Data Deduplication</h6>
-              <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany <br> Proceedings of the 25th International
-                Middleware Conference (Middleware'24). <a target=_blank
+              <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany <br> (Middleware'24). <a target=_blank
                   href="https://cs.uwaterloo.ca/~alkiswan/papers/SeqCDC_Middleware24.pdf">[pdf]</a></p>
             </li>
             <li>
               <h6> The Impact of Low-Entropy on Chunking Techniques for Data Deduplication </h6>
-              <p>Mu'men Al-Jarrah, Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany <br> IEEE 17th
-                International Conference on Cloud Computing (CLOUD'24) <a target=_blank
-                  href="https://cs.uwaterloo.ca/~alkiswan/papers/LowEntropy_CLOUD24.pdf">[pdf]</a></p>
+              <p>Mu'men Al-Jarrah, Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany <br> (CLOUD'24) <a
+                  target=_blank href="https://cs.uwaterloo.ca/~alkiswan/papers/LowEntropy_CLOUD24.pdf">[pdf]</a></p>
             </li>
             <li>
               <h6> DedupBench: A Benchmarking Tool for Data Chunking Techniques </h6>
-              <p>Alan Liu, Abdelrahman Baba, Sreeharsha Udayashankar, Samer Al-Kiswany <br> IEEE Canadian Conference on
-                Electrical and Computer Engineering (CCECE'23) <a target=_blank
-                  href="https://cs.uwaterloo.ca/~alkiswan/papers/DedupBench_CCECE23.pdf">[pdf]</a></p>
+              <p>Alan Liu, Abdelrahman Baba, Sreeharsha Udayashankar, Samer Al-Kiswany <br> (IEEE CCECE'23) <a
+                  target=_blank href="https://cs.uwaterloo.ca/~alkiswan/papers/DedupBench_CCECE23.pdf">[pdf]</a></p>
             </li>
           </ul>
         </div>
@@ -374,12 +449,22 @@
   </section>
 
 
-  <section class="section section--border-bottom rad-animation-group pb-0" id="publications">
+  <section class="section section--border-bottom rad-animation-group" id="patents">
     <div class="container rad-fade-down">
       <div class="row d-flex flex-column-reverse flex-md-row">
-        <div class="col-12 my-auto my-auto">
+        <div class="col-12 my-auto">
           <h3>Patents</h3>
           <ul class="lead" style="margin-top: 20px;">
+            <li>
+              <h6> Systems and methods for vectorized word-sized data chunking </h6>
+              <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany, Serg Bell and Stanislav Protasov <br> US
+                Patent and Trademark Office, April 2026</p>
+            </li>
+            <li>
+              <h6> Systems and methods for accelerating data chunking with vector instructions </h6>
+              <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany, Serg Bell and Stanislav Protasov <br> US
+                Patent and Trademark Office, June 2025</p>
+            </li>
             <li>
               <h6> Systems and methods for sequence-based data chunking for deduplication</h6>
               <p>Sreeharsha Udayashankar, Abdelrahman Baba, Samer Al-Kiswany, Serg Bell and Stanislav Protasov <br> US
@@ -411,34 +496,13 @@
   </section>
 
 
-  <section class="section section--border-bottom rad-animation-group pb-0" id="awards">
-    <div style="padding-bottom: 20px;" class="container rad-fade-down">
+
+<!-- 
+
+  <section class="section section--border-bottom rad-animation-group" id="education">
+    <div class="container rad-fade-down">
       <div class="row d-flex flex-column-reverse flex-md-row">
-        <div class="col-12 my-auto my-auto">
-          <h3>Awards</h3>
-          <ul class="lead" style="margin-top: 20px;">
-            <li>
-              <h7> Acronis Best Patent Award for 2023. </h7>
-            </li>
-            <li>
-              <h7> UWaterloo Graduate Student Research Dissemination Award 2023. </h7>
-            </li>
-            <li>
-              <h7> UWaterloo International Doctoral Student Award (IDSA). </h7>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <section class="section section--border-bottom rad-animation-group">
-    <div class="container">
-      <div class="row rad-fade-down">
-        <div class="col-12">
+        <div class="col-12 my-auto">
           <h3>Education</h3>
           <div class="row pt-2 pt-md-4">
 
@@ -470,7 +534,7 @@
     </div>
   </section>
 
-
+ -->
 
 
   <footer class="footer">
@@ -549,6 +613,29 @@
     })(this);
   </script>
   <script>
+    function updateToggleIcon() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.getElementById('icon-sun').style.display = isDark ? 'block' : 'none';
+      document.getElementById('icon-moon').style.display = isDark ? 'none' : 'block';
+    }
+
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggleIcon();
+    }
+
+    updateToggleIcon();
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        updateToggleIcon();
+      }
+    });
+
     const scroll = new SmoothScroll('a[href*="#"]');
     $('a.nav-link').on('click', () => {
       const navbar = $('.navbar-collapse');
